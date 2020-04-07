@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SAGE-POPOVICH INC.</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'style.css' %}" media="screen" title="no title" charset="utf-8">
+</head> 
+
+<body>
+      <div class="container,topNav, fixed-top" >
+        <nav class="navbar navbar-default .navbar-fixed-top">
+          <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">{% load static %}<img src="{% static 'images//logo.png' %}" /></a>
+            </div>
+              <ul class="nav nav-tabs">
+                <li class="nav-item"><a href="/">Home</a></li>
+                <li class="nav-item"><a href="/summ">Summery</a></li>
+                <li class="nav-item active"><a href="/inputData">Enter Data</a></li>
+                
+                    <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">LookUp Parts</a>
+
+                        
+                    
+                    <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/pn">PN</a><div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/desc">Description</a><div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/bulk">Bulk PN Input</a><div class="dropdown-divider"></div>
+                    </div>
+                </li>
+                
+              </ul>
+            </div>
+          </nav>
+        
+    </div>
+    <h1 style="margin-left:100px;">Manually Enter Part Information</h1>
+    <div class="row">
+      <div class="col-sm-7">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table class="data_entry">
+              <tr>
+                <td><label>Source: </label></td>
+                <td>
+                  <select id="part_source" name="part_source" style="max-width:100%">
+                    <option value="">Select</option>
+                    <option value="ILS">ILS</option>
+                    <option value="Airlines">Airlines</option>
+                    <option value="List">List</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td><label>Date: </label></td>
+                <td>
+                  <input type="date" name="part_date" width="50" />
+                </td>
+              </tr>
+              <tr>
+                <td><label>PN: </label></td>
+                <td>
+                  <input type="text" name="part_pn" width="30" />
+                </td>
+              </tr>
+              <tr>
+                <td><label>COND: </label></td>
+                <td>
+                  <select id="part_cond" name="part_cond" style="max-width:100%">
+                    <option value="">Select</option>
+                    <option value="new">New</option>
+                    <option value="oh">OH</option>
+                    <option value="sv">SV</option>
+                    <option value="ar">AR</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td><label>Desc: </label></td>
+                <td>
+                  <textarea name="part_desc" rows="5" cols="17">
+                  </textarea>
+                </td>
+              </tr>
+              <tr>
+                <td><label>Effectivity: </label></td>
+                <td>
+                  <input type="text" name="part_eff" width="30" />
+                </td>
+              </tr>
+              <tr>
+                <td><label>ATA: </label></td>
+                <td>
+                  <input type="text" name="part_desc" width="30" />
+                </td>
+              </tr>
+              <tr>
+                <td><label>Prices: </label></td>
+                <td>
+                  <input type="text" name="part_desc" width="30" />
+                </td>
+              </tr>
+              <tr>
+                <td><label>Serialized: </label></td>
+                <td>
+                  <input type="text" name="part_desc" width="30" />
+                </td>
+              </tr>
+              <tr>
+                <td><label>LLP: </label></td>
+                <td>
+                  <input type="text" name="part_desc" width="30" />
+                </td>
+              </tr>
+
+              <tr>
+                <td> <input type="reset" Value="Clear" /></td>
+                <td>
+                  <input type="submit" Value="Done" />
+                </td>
+              </tr>
+
+            </table>
+
+      </form>
+      </div>
+      
+  </div>
+
+
+</body>
+</html>
